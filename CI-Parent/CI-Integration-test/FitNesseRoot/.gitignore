@@ -1,0 +1,10 @@
+/ErrorLogs/
+/files/
+*.zip
+/FitNesse/
+/PageFooter/
+/PageHeader/
+/RecentChanges/
+/TemplateLibrary/
+/updateDoNotCopyOverList
+/updateList

@@ -1,0 +1,32 @@
+!*< hidden
+!define TEST_SYSTEM {slim}
+*!
+
+!*****> Import
+|import                         |
+|initial                        |
+|com.altran.ci.fitnesse.init    |
+|com.altran.ci.fitnesse.fixtures|
+
+******!
+
+
+|Fitnesse Init|
+|init?        |
+|true         |
+
+|Query: Show All Players|
+|name                   |
+|Messi                  |
+|Ronaldo                |
+
+|Add Player                                      |
+|                                  |name  |added?|
+|add Zlatan as new player          |Zlatan|true  |
+|same player can not be added again|Zlatan|false |
+
+|Query: Show All Players|
+|name                   |
+|Messi                  |
+|Ronaldo                |
+|Zlatan                 |
