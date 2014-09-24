@@ -1,7 +1,7 @@
 package com.altran.ci.player;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +10,7 @@ import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class PlayerRepositoryImpl implements PlayerRepository {
-	private Set<Player> players = new HashSet<Player>();
+	private Set<PlayerImpl> players = new HashSet<PlayerImpl>();
 	
 	public PlayerRepositoryImpl() {
 	}
@@ -18,11 +18,10 @@ public class PlayerRepositoryImpl implements PlayerRepository {
 	@PostConstruct
 	public void init() {
 		players.add(new PlayerImpl("Messi"));
-		players.add(new PlayerImpl("Ronaldo"));
+		players.add(new PlayerImpl("Zlatan"));
 	}
 
-	@Override
-	public boolean addPlayer(Player player) {
+	boolean addPlayer(PlayerImpl player) {
 		if (player != null) {
 			return players.add(player);
 		}
@@ -31,7 +30,32 @@ public class PlayerRepositoryImpl implements PlayerRepository {
 
 	@Override
 	public Collection<Player> getAllPlayers() {
-		return Collections.unmodifiableCollection(players);
+		Collection<Player> allPlayers = new ArrayList<Player>();
+		for (PlayerImpl player : this.players) {
+			allPlayers.add(player);
+		}
+		return allPlayers;
+	}
+
+	@Override
+	public Collection<Player> getAvailablePlayers() {
+		Collection<Player> availablePlayers = new ArrayList<Player>();
+		for (PlayerImpl player : this.players) {
+			if (player.isAvailable()) {
+				availablePlayers.add(player);
+			}
+		}
+		return availablePlayers;
+	}
+
+	@Override
+	public Player findPlayer(String name) {
+		for (PlayerImpl player : this.players) {
+			if (player.name().equals(name)) {
+				return player;
+			}
+		}
+		return null;
 	}
 
 }

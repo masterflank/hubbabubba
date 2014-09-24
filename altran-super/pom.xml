@@ -31,6 +31,18 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.jboss.arquillian.container</groupId>
+			<artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
+			<version>1.0.0.CR8</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<scope>provided</scope>
@@ -220,40 +232,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-	<profiles>
-		<profile>
-			<id>openwebbeans-standalone</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>org.apache.openwebbeans</groupId>
-					<artifactId>openwebbeans-impl</artifactId>
-					<version>1.1.6</version>
-					<scope>test</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.apache.openwebbeans</groupId>
-					<artifactId>openwebbeans-spi</artifactId>
-					<version>1.1.6</version>
-					<scope>test</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.apache.openwebbeans.arquillian</groupId>
-					<artifactId>owb-arquillian-standalone</artifactId>
-					<scope>test</scope>
-					<version>1.2.0</version>
-				</dependency>
-				<dependency>
-					<groupId>org.jboss.arquillian.junit</groupId>
-					<artifactId>arquillian-junit-core</artifactId>
-					<scope>test</scope>
-				</dependency>
-			</dependencies>
-		</profile>
-	</profiles>
 
 	<properties>
 		<projectCodeCoverage>0.10</projectCodeCoverage>

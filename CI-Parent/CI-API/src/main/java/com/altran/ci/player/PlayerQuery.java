@@ -1,25 +1,11 @@
 package com.altran.ci.player;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import javax.inject.Inject;
+public interface PlayerQuery {
 
-import org.json.JSONObject;
+	public abstract List<PlayerBean> getAllPlayers();
 
-public class PlayerQuery {
-	
-	public PlayerQuery() {
-	}
-	
-	@Inject private PlayerRepository repo;
-	
-	public Collection<JSONObject> getAllPlayers() {
-		List<JSONObject> result = new ArrayList<JSONObject>();
-		for (Player player : repo.getAllPlayers()) {
-			result.add(new JSONObject().put("Name", player.name()));
-		}
-		return result;
-	}
+	public abstract List<PlayerBean> getAvailablePlayers();
+
 }
