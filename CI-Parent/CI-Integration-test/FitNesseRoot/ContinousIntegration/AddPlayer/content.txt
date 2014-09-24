@@ -20,10 +20,10 @@
 |Messi                  |
 |Ronaldo                |
 
-|Add Player                                      |
-|                                  |name  |added?|
-|add Zlatan as new player          |Zlatan|true  |
-|same player can not be added again|Zlatan|false |
+|Add Player                              |
+|                          |name  |added?|
+|add Zlatan as new player  |Zlatan|true  |
+|there's only one Zlatan...|Zlatan|false |
 
 |Query: Show All Players|
 |name                   |

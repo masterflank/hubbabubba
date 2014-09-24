@@ -9,7 +9,6 @@
 	<description>Common super pom for Altran</description>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -19,23 +18,7 @@
 			<groupId>org.fitnesse</groupId>
 			<artifactId>fitnesse</artifactId>
 			<version>20140418</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.deltaspike.cdictrl</groupId>
-			<artifactId>deltaspike-cdictrl-api</artifactId>
-			<version>1.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.deltaspike.cdictrl</groupId>
-			<artifactId>deltaspike-cdictrl-weld</artifactId>
-			<version>1.0.2</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.weld.se</groupId>
-			<artifactId>weld-se</artifactId>
-			<version>2.2.5.Final</version>
-			<scope>runtime</scope>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -58,20 +41,47 @@
 			<version>2.17</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20140107</version>
-		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>1.1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.deltaspike.cdictrl</groupId>
+				<artifactId>deltaspike-cdictrl-api</artifactId>
+				<version>1.0.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.deltaspike.cdictrl</groupId>
+				<artifactId>deltaspike-cdictrl-weld</artifactId>
+				<version>1.0.2</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.weld.se</groupId>
+				<artifactId>weld-se</artifactId>
+				<version>2.2.5.Final</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>20140107</version>
+			</dependency>
+			<dependency>
 				<groupId>org.jboss.arquillian</groupId>
 				<artifactId>arquillian-bom</artifactId>
-				<version>1.1.3.Final</version>
-				<scope>import</scope>
+				<version>1.1.5.Final</version>
 				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>ch.qos.logback</groupId>

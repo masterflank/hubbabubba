@@ -1,17 +1,19 @@
 package com.altran.ci.player;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 
-import org.apache.commons.collections.CollectionUtils;
-
 @ApplicationScoped
 public class PlayerRepositoryImpl implements PlayerRepository {
 	private Set<Player> players = new HashSet<Player>();
+	
+	public PlayerRepositoryImpl() {
+	}
 	
 	@PostConstruct
 	public void init() {
@@ -29,7 +31,7 @@ public class PlayerRepositoryImpl implements PlayerRepository {
 
 	@Override
 	public Collection<Player> getAllPlayers() {
-		return CollectionUtils.unmodifiableCollection(players);
+		return Collections.unmodifiableCollection(players);
 	}
 
 }

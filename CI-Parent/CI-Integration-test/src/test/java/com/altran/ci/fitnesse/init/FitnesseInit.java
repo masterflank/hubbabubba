@@ -10,6 +10,7 @@ public class FitnesseInit {
 		cdiContainer = CdiContainerLoader.getCdiContainer();
 		if (cdiContainer.getBeanManager() == null) {
 			cdiContainer.boot();
+			cdiContainer.getContextControl().startContexts();
 		}
 
 		Context.initCdiContainer(cdiContainer);

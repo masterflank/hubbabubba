@@ -9,6 +9,10 @@ import javax.inject.Inject;
 import org.json.JSONObject;
 
 public class PlayerQuery {
+	
+	public PlayerQuery() {
+	}
+	
 	@Inject private PlayerRepository repo;
 	
 	public Collection<JSONObject> getAllPlayers() {
