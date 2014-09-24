@@ -1,0 +1,47 @@
+!*< hidden
+!define TEST_SYSTEM {slim}
+*!
+
+!*****> Import
+|import                         |
+|initial                        |
+|com.altran.ci.fitnesse.init    |
+|com.altran.ci.fitnesse.fixtures|
+
+******!
+!3 Description
+This test verifies the requirement Req 1: It must be possible to suspend a player for a specific amount of days. 
+
+|Fitnesse Init|
+|init?        |
+|true         |
+
+We start with two players
+|Query: Show All Players|
+|name                   |
+|Messi                  |
+|Ronaldo                |
+
+Add another one
+|Add Player                            |
+|                        |name  |added?|
+|add Zlatan as new player|Zlatan|true  |
+
+|Query: Show Available Players|
+|name                         |
+|Messi                        |
+|Ronaldo                      |
+|Zlatan                       |
+
+Zlatan has been bad... Suspend him for 7 days.
+|Suspend Player        |
+|name  |days|suspended?|
+|Zlatan|7   |true      |
+
+Check available players again. Zlatan should not be available
+|Query: Show Available Players|
+|name                         |
+|Messi                        |
+|Ronaldo                      |
+
+

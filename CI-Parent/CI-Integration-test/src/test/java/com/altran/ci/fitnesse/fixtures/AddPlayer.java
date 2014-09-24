@@ -1,9 +1,8 @@
 package com.altran.ci.fitnesse.fixtures;
 
+import com.altran.ci.command.CommandDispatcher;
 import com.altran.ci.fitnesse.init.Context;
-import com.altran.ci.player.Player;
-import com.altran.ci.player.PlayerImpl;
-import com.altran.ci.player.PlayerRepository;
+import com.altran.ci.player.AddPlayerCommand;
 
 public class AddPlayer {
 	private String name;
@@ -19,8 +18,8 @@ public class AddPlayer {
 	}
 	
 	public boolean added() {
-		Player player = new PlayerImpl(name);
-		PlayerRepository repo = Context.dIContainer().getBeanByClass(PlayerRepository.class);
-		return repo.addPlayer(player);
+		AddPlayerCommand command = new AddPlayerCommand(name);
+		CommandDispatcher dispatcher = Context.dIContainer().getBeanByClass(CommandDispatcher.class);
+		return dispatcher.dispatch(command);
 	}
 }
